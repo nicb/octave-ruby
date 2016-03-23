@@ -5,7 +5,7 @@ OR_StructMatrix::~OR_StructMatrix() {}
 
 VALUE OR_StructMatrix::to_ruby()
 {
-  Octave_map struct_matrix = Octave_map(octave_val.map_value());
+  octave_map struct_matrix = octave_map(octave_val.map_value());
   string_vector keys = struct_matrix.keys();
   int number_of_keys = keys.length();
   int number_of_rows = struct_matrix.rows();
@@ -71,7 +71,7 @@ octave_value OR_StructMatrix::to_octave()
     keys.append(std::string(RSTRING_PTR(RARRAY_PTR(names)[i])));
   }
   
-  Octave_map struct_matrix = Octave_map(dim_vector(number_of_rows, number_of_columns), Cell(keys));
+  octave_map struct_matrix = octave_map(dim_vector(number_of_rows, number_of_columns), keys);
   for (row_index = 0; row_index < number_of_rows; row_index++) {
     row = RARRAY_PTR(cells)[row_index];
   

@@ -9,7 +9,7 @@ if have_header("octave.h" ) &&
   #have_library("cruft") && #libcruft has been integrated into liboctave
   have_library("octinterp")
   
-  if Config::CONFIG["arch"] =~ /-darwin\d/
+  if RbConfig::CONFIG["arch"] =~ /-darwin\d/
     CONFIG['LDSHARED'] = "g++ -pipe -bundle"
     if octave_dirs.any?
       octave_dirs << File.dirname(octave_dirs.first)

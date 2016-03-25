@@ -2,9 +2,9 @@ module Octave
 
   module Version
 
-    MAJOR = 1
+    MAJOR = 2
     MINOR = 0
-    TINY  = 9
+    TINY  = 4
 
     STRING = [ MAJOR, MINOR, TINY ].join( "." )
     #:beta-tag:

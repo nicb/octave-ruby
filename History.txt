@@ -1,3 +1,15 @@
+== 2.0.4 / 2015-03-24
+
+* 1 major bug fix
+  * added finalizer to driver: clean_up_and_exit() is now called to eliminate 
+    double-free on program exit
+
+* 1 minor bug fix
+  * updated initialize_octave() for 4.0.0 compatibility
+
+* 1 minor enhancement
+  * added -H and -f flags to initialize_octave() argv array
+
 == 2.0.3 / 2012-01-29
 
 * 1 minor bug fix

@@ -3,6 +3,7 @@
 
 #include "octave/config.h"
 #include "octave.h"
+#include "builtins.h"
 #include "symtab.h"
 #include "parse.h"
 #include "unwind-prot.h"
@@ -12,5 +13,6 @@
 #include "sighandlers.h"
 #include "sysdep.h"
 #include "ov-struct.h"
+#include "toplev.h"
 
 #endif /*OCTAVE_INCLUDES_H_INCLUDED_ */

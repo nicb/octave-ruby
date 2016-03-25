@@ -4,11 +4,14 @@
 
 void initialize_octave()
 {
-  char *argv[2];
-  argv[0] = "octave-ruby";
-  argv[1] = "-q";
-  octave_main(2,argv,1);
-  bind_internal_variable("crash_dumps_octave_core", false);
+  /* this should really be const char * --thanks, Octave */
+  char *argv[4];
+  argv[0] = (char *) "octave-ruby";
+  argv[1] = (char *) "-q";  /* quiet! */
+  argv[2] = (char *) "-H";  /* no history file */
+  argv[3] = (char *) "-f";  /* ignore .rc files */
+  octave_main(4,argv,1);
+  set_global_value("crash_dumps_octave_core", false);
 }
 
 extern void recover_from_exception(void)
@@ -73,4 +76,10 @@ extern VALUE or_put_variable(VALUE variable_name, VALUE value)
 {
   set_top_level_value(std::string(RSTRING_PTR(variable_name)), OR_Variable(value).to_octave());
   return value;
+}
+
+extern VALUE or_exit()
+{
+  clean_up_and_exit(0, 1);
+  return Qnil;
 }

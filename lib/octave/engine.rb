@@ -37,6 +37,10 @@ module Octave
     def get_variable(name)
       @driver.get_variable(name)
     end
+
+    def exit
+      @driver.exit
+    end
     
     # Call the Octave function via a given name
     def method_missing(method_id, *args)

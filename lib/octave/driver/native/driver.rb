@@ -17,5 +17,9 @@ module Octave ; module Driver ; module Native
     def get_variable(name)
       API.get_variable(name)
     end  
+
+    def exit
+      API.exit
+    end
   end
 end ; end ; end
